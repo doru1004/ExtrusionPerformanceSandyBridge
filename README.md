@@ -1,6 +1,7 @@
 # ExtrusionPerformance
 Test harness for exploring the performance of finite element assembly in Firedrake.
 
+
 # Dependencies
 
 In order to run the tests a Firedrake installation is needed.
@@ -22,6 +23,7 @@ Before running the experiments please un-archive the meshes into
 
 MESHES/
 
+
 # Running the tests
 
 Set the environment and run test script:
@@ -31,6 +33,7 @@ Set the environment and run test script:
 cd DATA/SCRIPTS
 
 sh run.sh
+
 
 # Output
 
