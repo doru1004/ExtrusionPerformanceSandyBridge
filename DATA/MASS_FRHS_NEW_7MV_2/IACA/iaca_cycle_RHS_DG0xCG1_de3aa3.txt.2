@@ -1,0 +1,38 @@
+Intel(R) Architecture Code Analyzer Version - 2.1
+Analyzed File - /tmp/pyop2-cache-uid8081/df3e3133173d2e26299407d5c672233e.so
+Binary Format - 64Bit
+Architecture  - SNB
+Analysis Type - Throughput
+
+Throughput Analysis Report
+--------------------------
+Block Throughput: 2.00 Cycles       Throughput Bottleneck: Port0, PORT2_AGU, Port2_DATA, PORT3_AGU, Port3_DATA
+
+Port Binding In Cycles Per Iteration:
+-------------------------------------------------------------------------
+|  Port  |  0   -  DV  |  1   |  2   -  D   |  3   -  D   |  4   |  5   |
+-------------------------------------------------------------------------
+| Cycles | 2.0    0.0  | 1.0  | 2.0    2.0  | 2.0    2.0  | 0.0  | 1.0  |
+-------------------------------------------------------------------------
+
+N - port number or number of cycles resource conflict caused delay, DV - Divider pipe (on port 0)
+D - Data fetch pipe (on ports 2 and 3), CP - on a critical path
+F - Macro Fusion with the previous instruction occurred
+* - instruction micro-ops not bound to a port
+^ - Micro Fusion happened
+# - ESP Tracking sync uop was issued
+@ - SSE instruction followed an AVX256 instruction, dozens of cycles penalty is expected
+! - instruction not supported, was not accounted in Analysis
+
+| Num Of |              Ports pressure in cycles               |    |
+|  Uops  |  0  - DV  |  1  |  2  -  D  |  3  -  D  |  4  |  5  |    |
+---------------------------------------------------------------------
+|   1    |           |     | 1.0   1.0 |           |     |     | CP | vmovsd xmm7, qword ptr [rsp+0x18]
+|   2^   | 1.0       |     |           | 1.0   1.0 |     |     | CP | vmulsd xmm7, xmm7, qword ptr [rdi]
+|   !    |           |     |           |           |     |     |    | ud2 
+|   1    |           |     |           |           |     | 1.0 |    | mov ebx, 0x6f
+|   0*   |           |     |           |           |     |     |    | addr32 nop 
+|   1    |           |     | 1.0   1.0 |           |     |     | CP | vmovsd xmm6, qword ptr [rsp+0x20]
+|   2^   | 1.0       |     |           | 1.0   1.0 |     |     | CP | vmulsd xmm6, xmm6, qword ptr [rdx]
+|   1    |           | 1.0 |           |           |     |     |    | vaddsd xmm6, xmm7, xmm6
+Total Num Of Uops: 8

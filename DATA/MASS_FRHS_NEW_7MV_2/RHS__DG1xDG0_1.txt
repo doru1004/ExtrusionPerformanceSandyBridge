@@ -1,0 +1,8 @@
+Kernel DG1xDG0_1_1 Real_time 84.185807899 Proc_time 84.185807899 Total_instructions 0 IPC 0 Total_flpins 155241.975 MFLOPS 1844.03973632 DV 135381.907654 procs 1
+Kernel DG1xDG0_0_1 Real_time 392.20816869 Proc_time 392.20816869 Total_instructions 0 IPC 0 Total_flpins 155241.975 MFLOPS 395.815251677 DV 135381.907654 procs 1
+Kernel DG1xDG0_2_1 Real_time 72.487817552 Proc_time 72.487817552 Total_instructions 0 IPC 0 Total_flpins 157100.538 MFLOPS 2167.26814664 DV 128442.617798 procs 1
+Kernel DG1xDG0_4_1 Real_time 65.871110935 Proc_time 65.871110935 Total_instructions 0 IPC 0 Total_flpins 159467.28 MFLOPS 2420.89859631 DV 126036.449432 procs 1
+Kernel DG1xDG0_10_1 Real_time 66.131811648 Proc_time 66.131811648 Total_instructions 0 IPC 0 Total_flpins 163941.75 MFLOPS 2479.01495384 DV 126903.149414 procs 1
+Kernel DG1xDG0_30_1 Real_time 61.127069188 Proc_time 61.127069188 Total_instructions 0 IPC 0 Total_flpins 161918.82 MFLOPS 2648.88898079 DV 124185.166168 procs 1
+Kernel DG1xDG0_50_1 Real_time 58.47678327 Proc_time 58.47678327 Total_instructions 0 IPC 0 Total_flpins 156289.35 MFLOPS 2672.67351691 DV 119658.554077 procs 1
+Kernel DG1xDG0_100_1 Real_time 57.23165776 Proc_time 57.23165776 Total_instructions 0 IPC 0 Total_flpins 153377.7 MFLOPS 2679.94508639 DV 117293.948364 procs 1

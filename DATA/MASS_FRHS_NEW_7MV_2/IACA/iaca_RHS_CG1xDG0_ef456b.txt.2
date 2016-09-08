@@ -1,0 +1,44 @@
+Intel(R) Architecture Code Analyzer Version - 2.1
+Analyzed File - /tmp/pyop2-cache-uid8081/0fcf0b8d1db93b4512d6aadc19a8bb47.so
+Binary Format - 64Bit
+Architecture  - SNB
+Analysis Type - Throughput
+
+Throughput Analysis Report
+--------------------------
+Block Throughput: 3.80 Cycles       Throughput Bottleneck: FrontEnd
+
+Port Binding In Cycles Per Iteration:
+-------------------------------------------------------------------------
+|  Port  |  0   -  DV  |  1   |  2   -  D   |  3   -  D   |  4   |  5   |
+-------------------------------------------------------------------------
+| Cycles | 3.0    0.0  | 2.0  | 3.0    3.0  | 3.0    3.0  | 0.0  | 2.0  |
+-------------------------------------------------------------------------
+
+N - port number or number of cycles resource conflict caused delay, DV - Divider pipe (on port 0)
+D - Data fetch pipe (on ports 2 and 3), CP - on a critical path
+F - Macro Fusion with the previous instruction occurred
+* - instruction micro-ops not bound to a port
+^ - Micro Fusion happened
+# - ESP Tracking sync uop was issued
+@ - SSE instruction followed an AVX256 instruction, dozens of cycles penalty is expected
+! - instruction not supported, was not accounted in Analysis
+
+| Num Of |              Ports pressure in cycles               |    |
+|  Uops  |  0  - DV  |  1  |  2  -  D  |  3  -  D  |  4  |  5  |    |
+---------------------------------------------------------------------
+|   1    |           |     | 1.0   1.0 |           |     |     |    | vmovsd xmm1, qword ptr [rax]
+|   2    | 1.0       |     |           | 1.0   1.0 |     |     |    | vmulsd xmm1, xmm1, qword ptr [rdi+rcx*1]
+|   !    |           |     |           |           |     |     |    | ud2 
+|   1    |           |     |           |           |     | 1.0 |    | mov ebx, 0x6f
+|   0*   |           |     |           |           |     |     |    | addr32 nop 
+|   1    |           |     | 1.0   1.0 |           |     |     |    | vmovsd xmm0, qword ptr [rax+0x8]
+|   2    | 1.0       |     |           | 1.0   1.0 |     |     |    | vmulsd xmm0, xmm0, qword ptr [r8+rcx*1]
+|   1    |           | 1.0 |           |           |     |     |    | vaddsd xmm0, xmm0, xmm1
+|   !    |           |     |           |           |     |     |    | ud2 
+|   1    |           |     |           |           |     | 1.0 |    | mov ebx, 0x6f
+|   0*   |           |     |           |           |     |     |    | addr32 nop 
+|   1    |           |     | 1.0   1.0 |           |     |     |    | vmovsd xmm1, qword ptr [rax+0x10]
+|   2    | 1.0       |     |           | 1.0   1.0 |     |     |    | vmulsd xmm1, xmm1, qword ptr [r9+rcx*1]
+|   1    |           | 1.0 |           |           |     |     |    | vaddsd xmm0, xmm0, xmm1
+Total Num Of Uops: 13

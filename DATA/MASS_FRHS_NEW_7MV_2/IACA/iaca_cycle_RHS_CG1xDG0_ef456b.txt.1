@@ -1,0 +1,71 @@
+Intel(R) Architecture Code Analyzer Version - 2.1
+Analyzed File - /tmp/pyop2-cache-uid8081/0303513a3b20e0165b7feddce49f8452.so
+Binary Format - 64Bit
+Architecture  - SNB
+Analysis Type - Throughput
+
+Throughput Analysis Report
+--------------------------
+Block Throughput: 14.00 Cycles       Throughput Bottleneck: Port0
+
+Port Binding In Cycles Per Iteration:
+-------------------------------------------------------------------------
+|  Port  |  0   -  DV  |  1   |  2   -  D   |  3   -  D   |  4   |  5   |
+-------------------------------------------------------------------------
+| Cycles | 14.0   0.0  | 8.0  | 12.0   12.0 | 12.0   12.0 | 0.0  | 3.0  |
+-------------------------------------------------------------------------
+
+N - port number or number of cycles resource conflict caused delay, DV - Divider pipe (on port 0)
+D - Data fetch pipe (on ports 2 and 3), CP - on a critical path
+F - Macro Fusion with the previous instruction occurred
+* - instruction micro-ops not bound to a port
+^ - Micro Fusion happened
+# - ESP Tracking sync uop was issued
+@ - SSE instruction followed an AVX256 instruction, dozens of cycles penalty is expected
+! - instruction not supported, was not accounted in Analysis
+
+| Num Of |              Ports pressure in cycles               |    |
+|  Uops  |  0  - DV  |  1  |  2  -  D  |  3  -  D  |  4  |  5  |    |
+---------------------------------------------------------------------
+|   1    |           |     | 1.0   1.0 |           |     |     |    | vmovsd xmm2, qword ptr [rsp+0x28]
+|   2^   | 1.0       |     |           | 1.0   1.0 |     |     | CP | vmulsd xmm14, xmm14, qword ptr [rdx]
+|   2^   | 1.0       |     | 1.0   1.0 |           |     |     | CP | vmulsd xmm1, xmm2, qword ptr [rsi]
+|   1    |           |     |           | 1.0   1.0 |     |     |    | vmovsd xmm2, qword ptr [rsp+0x30]
+|   2^   | 1.0       |     | 1.0   1.0 |           |     |     | CP | vmulsd xmm0, xmm2, qword ptr [rcx]
+|   1    |           | 1.0 |           |           |     |     |    | vaddsd xmm1, xmm1, xmm14
+|   1    |           | 1.0 |           |           |     |     |    | vaddsd xmm1, xmm1, xmm0
+|   2^   | 1.0       |     |           | 1.0   1.0 |     |     | CP | vmulsd xmm0, xmm3, qword ptr [rip+0x343]
+|   !    |           |     |           |           |     |     |    | ud2 
+|   1    |           |     |           |           |     | 1.0 |    | mov ebx, 0x6f
+|   0*   |           |     |           |           |     |     |    | addr32 nop 
+|   1    |           |     | 1.0   1.0 |           |     |     |    | vmovsd xmm2, qword ptr [rsp+0x38]
+|   2^   | 1.0       |     |           | 1.0   1.0 |     |     | CP | vmulsd xmm15, xmm15, qword ptr [rdx]
+|   2^   | 1.0       |     | 1.0   1.0 |           |     |     | CP | vmulsd xmm2, xmm2, qword ptr [rsi]
+|   2^   | 1.0       |     |           | 1.0   1.0 |     |     | CP | vmulsd xmm3, xmm3, qword ptr [rip+0x343]
+|   1    |           | 1.0 |           |           |     |     |    | vaddsd xmm15, xmm2, xmm15
+|   1    |           |     | 1.0   1.0 |           |     |     |    | vmovsd xmm2, qword ptr [rsp+0x40]
+|   2^   | 1.0       |     |           | 1.0   1.0 |     |     | CP | vmulsd xmm2, xmm2, qword ptr [rcx]
+|   1    |           | 1.0 |           |           |     |     |    | vaddsd xmm2, xmm15, xmm2
+|   !    |           |     |           |           |     |     |    | ud2 
+|   1    |           |     |           |           |     | 1.0 |    | mov ebx, 0x6f
+|   0*   |           |     |           |           |     |     |    | addr32 nop 
+|   1    |           |     | 1.0   1.0 |           |     |     |    | vmovsd xmm5, qword ptr [rip+0x2f6]
+|   1    |           |     |           | 1.0   1.0 |     |     |    | vmovsd xmm4, qword ptr [rip+0x2e6]
+|   2^   | 1.0       |     | 1.0   1.0 |           |     |     | CP | vmulsd xmm5, xmm5, qword ptr [rsi]
+|   2^   | 1.0       |     |           | 1.0   1.0 |     |     | CP | vmulsd xmm4, xmm4, qword ptr [rdx]
+|   1    |           | 1.0 |           |           |     |     |    | vaddsd xmm5, xmm5, xmm4
+|   1    |           |     | 1.0   1.0 |           |     |     |    | vmovsd xmm4, qword ptr [rip+0x2ca]
+|   2^   | 1.0       |     |           | 1.0   1.0 |     |     | CP | vmulsd xmm4, xmm4, qword ptr [rcx]
+|   1    |           | 1.0 |           |           |     |     |    | vaddsd xmm4, xmm5, xmm4
+|   !    |           |     |           |           |     |     |    | ud2 
+|   1    |           |     |           |           |     | 1.0 |    | mov ebx, 0x6f
+|   0*   |           |     |           |           |     |     |    | addr32 nop 
+|   1    |           |     | 1.0   1.0 |           |     |     |    | vmovsd xmm5, qword ptr [rip+0x2e0]
+|   1    |           |     |           | 1.0   1.0 |     |     |    | vmovsd xmm7, qword ptr [rip+0x2d0]
+|   2^   | 1.0       |     | 1.0   1.0 |           |     |     | CP | vmulsd xmm6, xmm5, qword ptr [rsi]
+|   1    |           |     |           | 1.0   1.0 |     |     |    | vmovsd xmm5, qword ptr [rsp+0x20]
+|   2^   | 1.0       |     | 1.0   1.0 |           |     |     | CP | vmulsd xmm5, xmm5, qword ptr [rcx]
+|   1    |           | 1.0 |           |           |     |     |    | vaddsd xmm6, xmm6, xmm5
+|   2^   | 1.0       |     |           | 1.0   1.0 |     |     | CP | vmulsd xmm5, xmm7, qword ptr [rdx]
+|   1    |           | 1.0 |           |           |     |     |    | vaddsd xmm5, xmm6, xmm5
+Total Num Of Uops: 49
